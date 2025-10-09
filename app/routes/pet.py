@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, Path
 from sqlalchemy.ext.asyncio import AsyncSession
+from app.schemas.pet import PetCreate
 
 from app.database import get_db
 
@@ -13,7 +14,7 @@ async def list_mascotas(db: AsyncSession = Depends(get_db)):
 async def get_mascota(mascota_id: int, db: AsyncSession = Depends(get_db)):
     return {"msg": f"Información de la mascota {mascota_id}"}
 
-@router.post("/")
+@router.post("/", response_model=PetCreate)
 async def create_mascota(db: AsyncSession = Depends(get_db)):
     return {"msg": "Mascota registrada correctamente"}
 
