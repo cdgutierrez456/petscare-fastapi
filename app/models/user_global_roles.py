@@ -1,5 +1,6 @@
 from sqlalchemy import ForeignKey, Column, String, PrimaryKeyConstraint
 from sqlalchemy.orm import relationship
+from app.database import Base
 
 class UserGlobalRole(Base):
     __tablename__ = "user_global_roles"

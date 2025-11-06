@@ -1,5 +1,6 @@
 from sqlalchemy import Column, PrimaryKeyConstraint, String, ForeignKey, DateTime, Integer
 from datetime import datetime, timezone
+from app.database import Base
 
 class ClinicMember(Base):
     __tablename__ = 'clinic_members'
